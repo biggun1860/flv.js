@@ -55,6 +55,11 @@ function detect() {
         platform: platform_match[0] || ''
     };
 
+    // tgp fix
+    if (/\btgp_daemon/i.test(ua) && matched.majorVersion === '53.0.2357.130') {
+        matched.majorVersion = '43.0.2357.130';
+    }
+
     let browser = {};
     if (matched.browser) {
         browser[matched.browser] = true;
